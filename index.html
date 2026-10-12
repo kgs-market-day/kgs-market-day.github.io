@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,SOFT,WONK,wght@0,9..144,0..100,0..1,600;1,9..144,0..100,0..1,600&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="hero">
+  <div class="confetti" aria-hidden="true"></div>
+  <div id="streamers" aria-hidden="true"></div>
+  <div style="position:relative;z-index:3">
+    <h1 aria-label="Market Day"><span aria-hidden="true">M<b>a</b>r<b>k</b>e<b>t</b> D<b>a</b>y</span></h1>
+    <p class="when"><span id="date"></span><b id="time"></b><span id="place"></span></p>
+    <p class="runby" id="runBy"></p>
+    <br><a class="cue" href="#stalls">See the stalls ↓</a>
+  </div>
+</section>
+<section class="stalls" id="stalls">
+  <h2>Meet the stalls</h2>
+  <p>Tap a bauble to see what's on offer.</p>
+  <div class="grid" id="grid"></div>
+</section>
+<footer id="foot"></footer>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script>
+  $(".hero").insertAdjacentHTML("afterbegin", garland());
+  // ponytail: positions hand-picked to frame the title, not cover it
+  $("#streamers").innerHTML = [[4, 52], [11, 34], [17, 44], [83, 40], [90, 56], [96, 30]].map(([x, h], i) => {
+    let d = "M12 0"; for (let y = 0; y < h * 8; y += 30) d += ` q ${i % 2 ? 14 : -14} 15 0 30`;
+    return `<svg class="streamer" style="left:${x}%;height:${h}vh;animation-delay:-${i * 0.7}s" viewBox="0 0 24 ${h * 8}" preserveAspectRatio="xMidYMin slice"><path d="${d}" stroke="${pick(i + 2)}"/></svg>`;
+  }).join("");
+  $(".confetti").innerHTML = Array.from({ length: 36 }, (_, i) =>
+    `<i style="left:${Math.random() * 100}%;background:${pick(i)};animation-duration:${6 + Math.random() * 8}s;animation-delay:-${Math.random() * 14}s;scale:${0.6 + Math.random() * 0.7}"></i>`).join("");
+  for (const k of ["date", "time", "place", "runBy"]) $("#" + k).textContent = MARKET[k];
+  $("#foot").textContent = `${MARKET.title} · ${MARKET.date} · ${MARKET.time}`;
+  $("#grid").innerHTML = STALLS.map((s) =>
+    `<a class="card${s.featured ? " featured" : ""}" style="--b:${pick(STALLS.indexOf(s))};--i:${STALLS.indexOf(s)}" href="stall.html?id=${encodeURIComponent(s.id)}">${bauble(s)}<h3>${esc(s.name)}</h3></a>`).join("");
+  // title letters drop in one by one
+  let li = 0;
+  for (const n of [...$(".hero h1 span").childNodes]) {
+    const wrap = (t) => [...t].map((c) => c === " " ? " " : `<i class="l" style="--i:${li++}">${c}</i>`).join("");
+    const html = n.nodeType === 3 ? wrap(n.textContent) : `<b>${wrap(n.textContent)}</b>`;
+    n.replaceWith(document.createRange().createContextualFragment(html));
+  }
+  // baubles pop in as they scroll into view
+  const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))), { threshold: 0.3 });
+  document.querySelectorAll(".card").forEach((c) => io.observe(c));
+  // tap: bauble flies at the screen, then the stall page opens
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest(".card"); if (!a || e.metaKey || e.ctrlKey || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    e.preventDefault();
+    const b = a.querySelector(".bauble"), r = b.getBoundingClientRect(), z = b.cloneNode(true);
+    z.classList.add("zoom"); z.style.cssText = `left:${r.left}px;top:${r.top}px;width:${r.width}px;--dx:${innerWidth / 2 - r.left - r.width / 2}px;--dy:${innerHeight / 2 - r.top - r.height / 2}px;--b:${getComputedStyle(a).getPropertyValue("--b")}`;
+    b.style.visibility = "hidden"; document.body.append(z, Object.assign(document.createElement("div"), { className: "zoom-fade" }));
+    setTimeout(() => (location.href = a.href), 430);
+  });
+  addEventListener("pageshow", (e) => e.persisted && (document.querySelectorAll(".zoom, .zoom-fade").forEach((n) => n.remove()), document.querySelectorAll(".bauble").forEach((b) => (b.style.visibility = ""))));
+</script>
+</body>
+</html>

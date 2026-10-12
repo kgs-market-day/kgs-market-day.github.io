@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,SOFT,WONK,wght@0,9..144,0..100,0..1,600;1,9..144,0..100,0..1,600&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="stall">
+  <a class="back" href="index.html#stalls">← All stalls</a>
+  <article id="stall"></article>
+</main>
+<footer id="foot"></footer>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script>
+  const s = STALLS.find((x) => x.id === new URLSearchParams(location.search).get("id"));
+  $(".stall").insertAdjacentHTML("afterbegin", garland());
+  $("#foot").textContent = `${MARKET.title} · ${MARKET.date} · ${MARKET.time}`;
+  if (!s) {
+    $("#stall").innerHTML = `<header><h2>Stall not found</h2></header>`;
+  } else {
+    document.title = s.name ? `${s.name} · Market Day` : "Market Day";
+    $("#stall").style.setProperty("--b", pick(STALLS.indexOf(s)));
+    $("#stall").innerHTML = `
+      <header>${bauble(s)}<h2>${esc(s.name)}</h2><p class="desc">${esc(s.description)}</p></header>
+      <section><h3>Prices</h3><ul class="menu">${s.pricing.map(([i, p]) => `<li>${esc(i)}<b>${esc(p)}</b></li>`).join("")}</ul></section>
+      <section><h3>The team</h3><ul class="team">${s.team.map((t, n) => `<li style="--n:${n}">${esc(t)}</li>`).join("")}</ul></section>
+      ${s.teamPhoto ? `<img class="photo" src="${esc(s.teamPhoto)}" alt="The ${esc(s.name)} team">` : ""}`;
+  }
+</script>
+</body>
+</html>
