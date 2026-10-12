@@ -27,7 +27,7 @@
     $("#stall").innerHTML = `
       <header>${bauble(s)}<h2>${esc(s.name)}</h2><p class="desc">${esc(s.description)}</p></header>
       <section><h3>Prices</h3><ul class="menu">${s.pricing.map(([i, p]) => `<li>${esc(i)}<b>${esc(p)}</b></li>`).join("")}</ul></section>
-      ${s.demo ? `<section><h3>Game demo</h3><img class="demo" src="${esc(s.demo)}" alt="Screenshot of the ${esc(s.name)} game"></section>` : ""}
+      ${s.demo ? `<section><h3>Game preview</h3><img class="demo" src="${esc(s.demo)}" alt="Screenshot of the ${esc(s.name)} game"></section>` : ""}
       <section><h3>The team</h3>${s.teamPhoto ? `<img class="photo" src="${esc(s.teamPhoto)}" alt="The ${esc(s.name)} team">` : ""}<ul class="team">${s.team.map((t, n) => `<li style="--n:${n}">${esc(t)}</li>`).join("")}</ul></section>
       <nav class="pager">${[-1, 1].map((d) => {
         const n = STALLS[(STALLS.indexOf(s) + d + STALLS.length) % STALLS.length];

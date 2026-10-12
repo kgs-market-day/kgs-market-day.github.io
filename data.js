@@ -43,9 +43,9 @@ const STALLS = [
     name: "Little Links",
     logo: "img/little-links-logo.webp",
     description: "Looking for a fun way to add some colour to your style? Come visit Little Links! We sell colourful, handmade bracelets designed for all ages. With lots of different colours and styles to choose from, there’s something for everyone! Whether you want to match with your friends or find a cute new accessory, Little Links has the perfect bracelet for you! Come check us out and find your favourite link!",
-    pricing: [["Bracelet", "$2 – $4"]],
+    pricing: [["Bracelet", "$2 – $3"]],
     team: ["Scarlett", "Ruben", "Sophia", "Sophie", "Viccy"],
-    teamPhoto: "",
+    teamPhoto: "img/little-links-team.webp",
   },
   {
     id: "seasonal-surprises",
@@ -124,5 +124,14 @@ const STALLS = [
     pricing: [["Bauble kit", "$5"]],
     team: ["Lucas", "Spencer", "Asher"],
     teamPhoto: "img/deck-the-baubles-team.webp",
+  },
+  {
+    id: "christmas-crafts",
+    name: "Christmas Crafts",
+    logo: "img/christmas-crafts-logo.webp",
+    description: "Our business, Christmas Crafts, will sell fun little Christmas-themed paper creations, such as Christmas ninja stars, cool unique snowflakes, and festive paper birds that can sit on your finger. We will also have a lucky dip that includes Christmas erasers, Christmas lollies and Christmas squishies. Every purchase includes a spin of the wheel for a chance to win a special prize, or you can just pay to spin the wheel. With cheap and affordable prices, Christmas Crafts is the perfect place if you want a little gift for yourself or a friend.",
+    pricing: [["5 paper creations", "$2"], ["Spin the wheel (free with any purchase)", "$3"], ["Lucky dip", "$4"], ["Squishy toy", "$4"]],
+    team: ["Nash Quinn", "William Casey", "William Bryan"],
+    teamPhoto: "img/christmas-crafts-team.webp",
   },
 ];

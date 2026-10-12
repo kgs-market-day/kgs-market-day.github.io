@@ -54,6 +54,8 @@ img { max-width: 100%; display: block; }
 .card:hover .bauble, .card:focus-visible .bauble { transform: rotate(-6deg) scale(1.05); }
 .card h3 { font-family: var(--display); font-weight: 600; font-size: 1.35rem; }
 .card.featured .bauble { transform: scale(1.07); }
+/* centre a lone bauble on the last row */
+.card:last-child:nth-child(4n+1) { grid-column: 2 / span 2; }
 .card.featured:hover .bauble, .card.featured:focus-visible .bauble { transform: rotate(-6deg) scale(1.12); }
 .card.featured h3 { font-size: 1.45rem; }
 
@@ -136,4 +138,16 @@ footer { text-align: center; padding: 2rem; font-size: .9rem; color: #c9d6cf; }
   .lights span, .streamer, .hero h1 .l, .when, .runby, .cue, .card .bauble, .stall *, .card.featured .bauble::after { animation: none !important; }
   .card { opacity: 1; translate: 0; scale: 1; transition: none; } .confetti { display: none; }
 }
-@media (max-width: 700px) { .streamer:nth-of-type(3n+2) { display: none; } .grid { gap: 2.5rem 1rem; grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .streamer:nth-of-type(3n+2) { display: none; } .grid { gap: 2.5rem 1rem; grid-template-columns: repeat(2, 1fr); }
+  .card:last-child:nth-child(4n+1) { grid-column: auto; } .card:last-child:nth-child(2n+1) { grid-column: 1 / -1; } }
+
+/* Eat Up charity section */
+.cause { max-width: 900px; margin: 0 auto; padding: 5rem 1.5rem 3rem; text-align: center; }
+.cause h2 { font-family: var(--display); font-weight: 600; font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1.05; }
+.cause .lead { font-size: 1.15rem; max-width: 58ch; margin: 1.25rem auto 0; }
+.cause a { color: var(--gold); }
+.stats { list-style: none; padding: 0; margin: 3rem 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.stats li { font-size: 1rem; opacity: .9; }
+.stats b { display: block; font-family: var(--display); font-weight: 600; font-size: clamp(2.4rem, 7vw, 3.6rem); color: var(--gold); line-height: 1; margin-bottom: .5rem; }
+.cause .small { font-size: .95rem; opacity: .8; max-width: 55ch; margin: 0 auto; }
+@media (max-width: 700px) { .stats { grid-template-columns: 1fr; gap: 1.75rem; } }
