@@ -10,13 +10,13 @@ const MARKET = {
 
 const STALLS = [
   {
-    id: "game-booth",
-    name: "The Game Booth",
-    logo: "img/game-booth-logo.webp",
-    description: "The Game Booth brings the fun of carnival games to primary school kids. We set up classic games like ring toss, cup pong and corn hole. Kids play, laugh and cheer on their friends. Everyone can win prizes like squishies and fidgets. It is easy fun for school events, and every kid gets a great time.",
-    pricing: [["Game", "$4"]],
-    team: ["Hugo", "Will", "CJ", "Jae"],
-    teamPhoto: "",
+    id: "zrc-wristmas",
+    name: "ZRC Wristmas",
+    logo: "img/zrc-wristmas-logo.webp",
+    description: "We are ZRC Wristmas, a fun, vibrant and festive brand that captures the magic of Christmas through stylish, colourful bracelet kits. Our brand combines creativity and holiday spirit to create unique accessories that add a touch of Christmas sparkle to any outfit. We believe that the little things can make the festive season more special, whether it's expressing your personality or sharing the joy of Christmas with others. With playful designs and a cheerful aesthetic, ZRC Wristmas brings a modern twist to traditional Christmas accessories. Our mission is to spread happiness, creativity and Christmas cheer, one bracelet at a time!",
+    pricing: [["Bracelet kit", "$3"]],
+    team: ["Zach Dove", "Clovis Hoban", "Rehan Basra"],
+    teamPhoto: "img/zrc-wristmas-team.webp",
   },
   {
     id: "plinkmas",
@@ -88,13 +88,13 @@ const STALLS = [
     teamPhoto: "img/wicked-beauty-team.png",
   },
   {
-    id: "zrc-wristmas",
-    name: "ZRC Wristmas",
-    logo: "img/zrc-wristmas-logo.webp",
-    description: "We are ZRC Wristmas, a fun, vibrant and festive brand that captures the magic of Christmas through stylish, colourful bracelet kits. Our brand combines creativity and holiday spirit to create unique accessories that add a touch of Christmas sparkle to any outfit. We believe that the little things can make the festive season more special, whether it's expressing your personality or sharing the joy of Christmas with others. With playful designs and a cheerful aesthetic, ZRC Wristmas brings a modern twist to traditional Christmas accessories. Our mission is to spread happiness, creativity and Christmas cheer, one bracelet at a time!",
-    pricing: [["Bracelet kit", "$3"]],
-    team: ["Zach Dove", "Clovis Hoban", "Rehan Basra"],
-    teamPhoto: "img/zrc-wristmas-team.webp",
+    id: "game-booth",
+    name: "The Game Booth",
+    logo: "img/game-booth-logo.webp",
+    description: "The Game Booth brings the fun of carnival games to primary school kids. We set up classic games like ring toss, cup pong and corn hole. Kids play, laugh and cheer on their friends. Everyone can win prizes like squishies and fidgets. It is easy fun for school events, and every kid gets a great time.",
+    pricing: [["Game", "$4"]],
+    team: ["Hugo", "Will", "CJ", "Jae"],
+    teamPhoto: "",
   },
   {
     id: "mystery-vault",
