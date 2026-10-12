@@ -85,7 +85,7 @@ img { max-width: 100%; display: block; }
 .menu b { order: 2; font-variant-numeric: tabular-nums; }
 .team { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; }
 .team li { background: var(--pine); color: var(--cream); padding: .45rem 1rem; border-radius: 999px; }
-.photo { width: 100%; max-height: 520px; object-fit: cover; margin-bottom: 1.25rem; border-radius: 14px; border: 6px solid #fff; box-shadow: 0 14px 30px rgb(0 0 0 / .15); rotate: -1deg; }
+.photo { margin: 0 auto 1.25rem; max-height: 85vh; width: auto; max-width: 100%; border-radius: 14px; border: 6px solid #fff; box-shadow: 0 14px 30px rgb(0 0 0 / .15); rotate: -1deg; }
 .demo { border-radius: 14px; box-shadow: 0 14px 30px rgb(0 0 0 / .18); }
 footer { text-align: center; padding: 2rem; font-size: .9rem; color: #c9d6cf; }
 
