@@ -1,5 +1,5 @@
 // Edit this file only. Drop logos/photos into img/ and point to them here.
-// logo and teamPhoto are optional: no logo = initials on the bauble, no teamPhoto = section hidden. logoFit: "contain" for non-square logos.
+// logo and teamPhoto are optional: no logo = initials on the bauble, no teamPhoto = names only. demo = optional screenshot. logoFit: 80 shrinks a logo to show all of it, logoBg fills the bauble behind it.
 const MARKET = {
   title: "Market Day",
   date: "Tuesday 20 October",
@@ -27,6 +27,7 @@ const STALLS = [
     pricing: [["2 balls", "$1"], ["10 balls", "$4"]],
     team: ["Daniel M", "Josh G", "Oliver M", "Joseph N"],
     teamPhoto: "img/plinkmas-team.webp",
+    demo: "img/plinkmas-demo.jpg",
   },
   {
     id: "great-guess",
@@ -50,7 +51,8 @@ const STALLS = [
     id: "seasonal-surprises",
     name: "Seasonal Surprises",
     logo: "img/seasonal-surprises-logo.webp",
-    logoFit: "contain",
+    logoFit: 80,
+    logoBg: "#fff",
     description: "Seasonal Surprises runs fun and exciting raffles at an affordable price for all ages to enjoy. Offering both Halloween and Christmas themed raffles, prizes include seasonal decorations alongside seasonally themed squishies. Priced at $2 for one ticket and $5 for 3 tickets, our raffles are for everyone and we can’t wait to see you there at Tuesday lunchtime.",
     pricing: [["1 raffle ticket", "$2"], ["3 raffle tickets", "$5"]],
     team: ["Charlie W", "Mia S", "Henry B", "Chloe N", "Tiffany N"],
@@ -69,6 +71,8 @@ const STALLS = [
     id: "squish-squad",
     name: "Squish Squad",
     logo: "img/squish-squad-logo.webp",
+    logoFit: 92,
+    logoBg: "#eae4dd",
     description: "We are Squish Squad! Supplying you with all your festive sensory needs, including themed slimes and squishies. During the holiday period, gift giving can be hard, but we are here to solve this issue. With our Handmade slimes you can feel the authenticity running through it and supporting local businesses through every purchase. We run our operations 100% authentically, providing products from our hearts to yours.",
     pricing: [["Slimes & squishies", "around $5"]],
     team: ["Kristiana", "Maggie", "Lily K", "Stefani", "Molly"],
@@ -114,6 +118,8 @@ const STALLS = [
     id: "deck-the-baubles",
     name: "Deck the Baubles!",
     logo: "img/deck-the-baubles-logo.webp",
+    logoFit: 74,
+    logoBg: "#f2eedd",
     description: "Looking for some Christmas fun? Deck the Baubles has you covered! We’re your one-of-a-kind stop for a magical festive experience you can enjoy year after year. Our custom bauble creation kits let you design your own Christmas keepsake to hang on the tree every December. Each kit includes three baubles in green, red and gold, along with red and green paint and a paintbrush to bring your creation to life. Come along and grab your kit today to start a festive tradition you’ll treasure for years to come!",
     pricing: [["Bauble kit", "$5"]],
     team: ["Lucas", "Spencer", "Asher"],
