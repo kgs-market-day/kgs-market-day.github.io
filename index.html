@@ -50,12 +50,10 @@
   $("#grid").innerHTML = STALLS.map((s) =>
     `<a class="card${s.featured ? " featured" : ""}" style="--b:${pick(STALLS.indexOf(s))};--i:${STALLS.indexOf(s)}" href="stall.html?id=${encodeURIComponent(s.id)}">${bauble(s)}<h3>${esc(s.name)}</h3></a>`).join("");
   // title letters drop in one by one
+  // words sit in nowrap spans so the line can only break between "Market" and "Day"
   let li = 0;
-  for (const n of [...$(".hero h1 span").childNodes]) {
-    const wrap = (t) => [...t].map((c) => c === " " ? " " : `<i class="l" style="--i:${li++}">${c}</i>`).join("");
-    const html = n.nodeType === 3 ? wrap(n.textContent) : `<b>${wrap(n.textContent)}</b>`;
-    n.replaceWith(document.createRange().createContextualFragment(html));
-  }
+  const wrap = (t) => [...t].map((c) => c === " " ? `</span> <span class="w">` : `<i class="l" style="--i:${li++}">${c}</i>`).join("");
+  $(".hero h1 span").innerHTML = `<span class="w">${[...$(".hero h1 span").childNodes].map((n) => n.nodeType === 3 ? wrap(n.textContent) : `<b>${wrap(n.textContent)}</b>`).join("")}</span>`;
   // baubles pop in as they scroll into view
   const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))), { threshold: 0.3 });
   document.querySelectorAll(".card").forEach((c) => io.observe(c));
