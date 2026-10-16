@@ -94,7 +94,7 @@ const STALLS = [
     description: "The Game Booth brings the fun of carnival games to primary school kids. We set up classic games like ring toss, cup pong and corn hole. Kids play, laugh and cheer on their friends. Everyone can win prizes like squishies and fidgets. It is easy fun for school events, and every kid gets a great time.",
     pricing: [["Game", "$4"]],
     team: ["Hugo", "Will", "CJ", "Jae"],
-    teamPhoto: "",
+    teamPhoto: "img/game-booth-team.webp",
   },
   {
     id: "mystery-vault",
@@ -133,5 +133,14 @@ const STALLS = [
     pricing: [["5 paper creations", "$2"], ["Spin the wheel (free with any purchase)", "$3"], ["Lucky dip", "$4"], ["Squishy toy", "$4"]],
     team: ["Nash Quinn", "William Casey", "William Bryan"],
     teamPhoto: "img/christmas-crafts-team.webp",
+  },
+  {
+    id: "mystery-market",
+    name: "The Mystery Market",
+    logo: "img/mystery-market-logo.webp",
+    description: "The Mystery Market is a business that sells mystery boxes filled with a variety of exciting and unexpected items. Each box offers customers a surprise, with different products and values depending on the box they choose. The business aims to provide an enjoyable and affordable shopping experience for people who like surprises. Customers can choose from different boxes to suit their interests and budget. The Mystery Market focuses on providing quality products, good value and an exciting unboxing experience.",
+    pricing: [["Classic box", "$3"], ["Rare box", "$4.50"], ["Legendary box", "$5"]],
+    team: ["Xavier Misso", "Archie Duncan", "LeMinh Trinh"],
+    teamPhoto: "img/mystery-market-team.webp",
   },
 ];
